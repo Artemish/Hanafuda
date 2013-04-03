@@ -7,7 +7,7 @@ public enum Card {
 	Plum1 (1,4),
 	Plum2 (1,5),
 	PlumRibbon (1,6),
-	PlumAnimal (1,7),
+	PlumAnimal (1,7), 
 	Sakura1 (2,8),
 	Sakura2 (2,9),
 	SakuraRibbon(2,10),

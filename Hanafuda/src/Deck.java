@@ -26,6 +26,12 @@ class Deck {
             deck.remove(0);
         }
 	}
+	void deal(Board board){
+		for (int i = 0; i < 8; i++) {
+            board.giveCard(deck.get(0));
+            deck.remove(0);
+        }
+	}
 
 	void drawcard(){
 		

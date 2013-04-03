@@ -13,5 +13,4 @@ class Player{
 	void giveCard(Card card) {
 		hand.add(card);
 	}
-	
 }
