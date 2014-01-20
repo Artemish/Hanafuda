@@ -6,10 +6,12 @@ import java.util.Random;
 
 public class Deck {
 	
-	private ArrayList<Card> cards;
+	private ArrayList<Card> cards = new ArrayList<Card>();
 	
 	public Deck() {
-		for (Card c : Card.values()) cards.add(c);		
+		for (Card c : Card.values()) {
+			if (c != Card.Null && c != Card.FaceDown) cards.add(c);
+		}
 	}
 	
 	void shuffle() {

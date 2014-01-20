@@ -1,7 +1,10 @@
 package hanafuda.server;
 
+import java.util.HashMap;
+
 public enum Card {
-	Null (-1, -1),
+	Null (-2, -2),
+	FaceDown(-1, -1),
 	Pine1 (0, 0), 
 	Pine2 (0, 1), 
 	PineRibbon (0, 2), 
@@ -52,10 +55,28 @@ public enum Card {
 	StarBright (11, 47);
 	
 	public byte suit,  cardID;
+	protected static HashMap<Byte, Card> byID = new HashMap<Byte, Card>();
 	
 	private Card(int suit, int cardID) {
 		this.suit = (byte) suit;
 		this.cardID = (byte) cardID;
+	}
+	
+	static Card blindCard(Card c) {
+		if (c == Null) return c;
+		else return FaceDown;
+	}
+	
+	static void initialize() {
+		for (Card c : Card.values()) byID.put(c.cardID, c);
+	}
+	
+	static boolean combos(Card c1, Card c2) {
+		return (c1.suit == c2.suit) && c2 != null;
+	}
+	
+	static Card getByID(byte index) {
+		return byID.get(index);
 	}
 	
 }
